@@ -111,6 +111,44 @@ def get_session_by_id(session_id):
 	results = [d for d in data['results'] if d['id']==str(session_id)]
 	return results_display(results)
 
+def get_captions_by_session(session_id, start=None, limit=None):
+	"""
+	Same as /sesssion/{sessionId}/captions
+	args:
+		session_id: int
+	kwargs:
+		start: int
+		limit: int
+	"""
+	name = 'captions'
+	data = get_mock_data(name)
+	results = [d for d in data['results'] if 
+			   d['session_id']==str(session_id)]
+	if not start:
+		start = 0
+	if not limit:
+		limit = len(results)
+	return results_display(results[start:start+limit])
+
+def get_cuepoints_by_session(session_id, start=None, limit=None):
+	"""
+	Same as /sesssion/{sessionId}/captions
+	args:
+		session_id: int
+	kwargs:
+		start: int
+		limit: int
+	"""
+	name = 'cuepoints'
+	data = get_mock_data(name)
+	results = [d for d in data['results'] if 
+			   d['session_id']==str(session_id)]
+	if not start:
+		start = 0
+	if not limit:
+		limit = len(results)
+	return results_display(results[start:start+limit])
+
 def get_sites(state=None, start=None, limit=None):
 	"""
 	Same as /sites

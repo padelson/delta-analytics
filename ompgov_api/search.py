@@ -37,6 +37,30 @@ def get_session_by_id(session_id):
 	"""
 	return query_results('sessions/{}'.format(session_id))
 
+def get_captions_by_session(session_id, start=None, limit=None):
+	"""
+	Same as /sesssion/{sessionId}/captions
+	args:
+		session_id: int
+	kwargs:
+		start: int
+		limit: int
+	"""
+	return query_results('session/{}/captions'.format(session_id),
+						  start=start, limit=limit)
+
+def get_cuepoints_by_session(session_id, start=None, limit=None):
+	"""
+	Same as /sesssion/{sessionId}/captions
+	args:
+		session_id: int
+	kwargs:
+		start: int
+		limit: int
+	"""
+	return query_results('session/{}/cuepoints'.format(session_id),
+						 start=start, limit=limit)
+
 def get_sites(state=None, start=None, limit=None):
 	"""
 	Same as /sites
